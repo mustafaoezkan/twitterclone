@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:twitterclone/home_view.dart';
 
@@ -8,9 +9,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Material App',
-      home: HomeView(),
+      home: HomeView(
+        key: null,
+      ),
+      theme: ThemeData.light().copyWith(
+          appBarTheme:
+              AppBarTheme(color: Theme.of(context).scaffoldBackgroundColor),
+          tabBarTheme: TabBarTheme(
+              labelColor: CupertinoColors.activeBlue,
+              unselectedLabelColor: CupertinoColors.inactiveGray)),
     );
   }
 }
